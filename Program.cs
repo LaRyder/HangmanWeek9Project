@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
 
 namespace HangmanGame
 {
@@ -8,15 +11,36 @@ namespace HangmanGame
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Hangman, Let's play!");
-            Console.Write("Please enter a letter: ");
-            Console.ReadLine();
+           
+            string[] HangmanWords = new string [1];
 
-            var answer = new List<string>()
+            HangmanWords[0] = "apple";
+
+            Random wordGuess = new Random();
+
+            var words = wordGuess.Next(0, 1);
+
+            string correctAnswer = HangmanWords[words];
+
+            char[]guessedLetters = new char[correctAnswer.Length];
+
+            Console.Write("Please enter a letter to guess: ");
+           
+
+            for (int i = 0; i < correctAnswer.Length; i++)
+                guessedLetters[i] ='*';
+
+            while (true)
             {
-               "Apple",
-            };
+                char userInput = char.Parse(Console.ReadLine());
+                for (int k = 0; k < correctAnswer.Length; k++)
 
-            char[] letterbank = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+                {
+                    if (userInput == correctAnswer[k])
+                        guessedLetters[k] = userInput;
+                }
+                    Console.WriteLine(guessedLetters);
+            }
         }
     }
 }
