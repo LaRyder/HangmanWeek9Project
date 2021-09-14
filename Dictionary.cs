@@ -10,6 +10,7 @@ namespace HangmanGame
     public class Dictionary
     {
         private List<string> gamewords;
+
         Random random = new Random();
         public Dictionary()
         {
@@ -19,6 +20,7 @@ namespace HangmanGame
                 "apple",
                 "pumpkin",
                 "squash",
+                "truck",
             };
         }
 

@@ -9,21 +9,22 @@ namespace HangmanGame
     //Contains the win and lose statements
     class Result
     {
-        public UserInterface ui;
-        private bool Lose;
-        private bool Win;
-        public void Results()
+        public UserInterface userInterface;
+        public Result()
         {
-            if (Lose == true)
-            {
-                ui.Write("You Lose!\nPress Enter to Quit: ");
-                ui.Input();
-            }
-            if (Win == true) // when bool becomes true
-            {
-                ui.Write("You Win!\nPress Enter to Quit: ");
-                ui.Input();
-            }
+            userInterface = new UserInterface();
+        }
+
+        public void Win()
+        {
+            userInterface.Tell("You win!\nPress Enter to Quit: ");
+            Console.ReadKey();
+        }
+
+        public void Lose()
+        {
+            userInterface.Tell("You Lose!\nPress Enter to Quit: ");
+            Console.ReadKey();
         }
     }
 }

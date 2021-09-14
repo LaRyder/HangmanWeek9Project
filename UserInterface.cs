@@ -8,18 +8,22 @@ namespace HangmanGame
 {
     public class UserInterface
     {
-        public void Tell(string tell)
+        public void Tell(string toCon)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(toCon);
         }
 
-        public void Write(string toCon)
-        {
-            Console.Write(toCon);
-        }
-        public void Input()
-        {
-            Console.ReadLine();
-        }
+       public char Input(string ask)
+       {
+            Console.Write(ask);
+            var response = Console.ReadLine();
+            char myChar;
+
+            if (!Char.TryParse(response, out myChar))
+            {
+                Input(ask);
+            }
+            return myChar;
+       }
     }
 }

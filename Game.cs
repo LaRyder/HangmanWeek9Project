@@ -8,38 +8,54 @@ namespace HangmanGame
 {
     public class Game
     {
-        private UserInterface userinterface;
         private Dictionary dictionary;
         private Guess guess;
         private Result result;
-        public string answer;
-        private int guesses;
 
         public Game()
         {
-            userinterface = new UserInterface();
+            result = new Result();
             dictionary = new Dictionary();
-            this.answer = dictionary.GetAnswer();
-            this.guesses = 6;
+            var answer = dictionary.GetAnswer();
+            int guesses = 6;
+            guess = new Guess(guesses, answer);
         }
 
         public void Run()
         {
-            HideAnswer();
-            userinterface.Write($"Welcome to Hangman, Let's Play!\nThe words is {HideAnswer()}\nYou have {guesses} remaining\n");
+            guess.DisplayWelcome();
+            GuessLoop();
         }
 
-        public string HideAnswer()
+        public void GuessLoop()
         {
-            var sb = new StringBuilder();
+            var continueGame = true;
 
-            foreach (var foo in answer) //for loop to add * for each char in the string
+            while (continueGame)
             {
-                {
-                    sb.Append("* "); //this takes the place of numbers in GuessDisplay List
-                }
+                guess.GuessCheck();
+                guess.WordSoFar();
+                continueGame = CheckLives();
             }
-            return sb.ToString();
+        }
+        public bool CheckLives()
+        {
+            bool continueGame;
+            if (guess.Death())
+            {
+                result.Lose();
+                continueGame = false;
+            }
+            else if (guess.CheckWin())
+            {
+                result.Win();
+                continueGame = false;
+            }
+            else
+            {
+                continueGame = true;
+            }
+            return continueGame;
         }
     }
 }
