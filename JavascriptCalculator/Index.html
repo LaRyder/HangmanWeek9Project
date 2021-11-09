@@ -11,18 +11,20 @@
   
 </head>
 <div class="grid-container">
-  <div class="top">
-		<button class="calculator button clear">C</button>
-    <form>
-      <label for="input"></label>
-      <input class="input" id="number-input" type="number" value=""disabled/>
-    </form>   
-   </div>
-  <div class="calculatorbutton grid-number">1</div>
+  <div class= "top">
+  <div class="clear">
+		<button class="calculator button clear operator clearbutton" id="clear">C</button>
+    </div>
+<div class="screen">
+      <input class="screen" id="number-input" type="number" value="total"disabled/>
+   </div></div>
+  <div class="calculatorbutton grid-number">7</div>
 
-  <div class="calculatorbutton grid-number">2</div>  
+  <div class="calculatorbutton grid-number">8</div>  
 
-  <div class="calculatorbutton grid-number">3</div>
+  <div class="calculatorbutton grid-number">9</div>
+
+  <div class="calculatorbutton operator" id="divide">/</div>  
 
   <div class="calculatorbutton grid-number">4</div>
 
@@ -30,22 +32,23 @@
 
   <div class="calculatorbutton grid-number">6</div>
 
-  <div class="calculatorbutton grid-number">7</div>
+  <div class="calculatorbutton operator" id="multiply">*</div> 
 
-  <div class="calculatorbutton grid-number">8</div>
+  <div class="calculatorbutton grid-number">1</div>
 
-  <div class="calculatorbutton grid-number">9</div>
+  <div class="calculatorbutton grid-number">2</div>
 
-  <div class="calculatorbutton" id="multiply">x</div> 
+  <div class="calculatorbutton grid-number">3</div>
 
-  <div class="calculatorbutton" id="divide">/</div>  
+  <div class="calculatorbutton operator" id="subtract">-</div>
 
-  <div class="calculatorbutton" id="add">+</div>
+  <div class="calculatorbutton grid-number">0</div>
 
-  <div class="calculatorbutton" id="subtract">-</div>
+  <div class="calculatorbutton operator" id="dot">.</div>
 
   <div class="calculatorbutton equalsbutton" id="equal">=</div>
 
+  <div class="calculatorbutton operator" id="add">+</div>
 
 </div>
 </body>
